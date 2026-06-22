@@ -19,7 +19,7 @@ A PHP web app for managing student course schedules. Students can view their sch
 
 - PHP (no framework)
 - MySQL via `mysqli`
-- [Gradio](https://www.gradio.app/) — just kidding, plain HTML/CSS
+- plain HTML/CSS
 - [Tabler Icons](https://tabler.io/icons) for icons
 
 ---
@@ -28,7 +28,7 @@ A PHP web app for managing student course schedules. Students can view their sch
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git clone https://github.com/prestonnorskog/classmanager.git
 cd YOUR_REPO_NAME
 ```
 
