@@ -44,9 +44,31 @@ $pass = "your_db_password";
 
 > **Never commit real credentials.** Add `includes/db.php` to your `.gitignore` and use environment variables or a config file outside the web root in production.
 
-**3. Import the database schema**
+**3. Create the database and import the schema**
 
-Run the SQL schema against your database (tables needed: `users`, `courses`, `enrollments`, `messages`).
+Create a database in MySQL/MariaDB, then import the included schema file:
+
+```bash
+mysql -u your_db_user -p
+```
+```sql
+CREATE DATABASE your_db_name;
+EXIT;
+```
+```bash
+mysql -u your_db_user -p your_db_name < schema.sql
+```
+
+This creates four tables:
+
+| Table | Description |
+|---|---|
+| `users` | Accounts with name, email, bcrypt password hash, role (`student`/`advisor`), and optional profile pic path |
+| `courses` | Course catalog with code, name, credits, and optional `prereq_course_id` foreign key |
+| `enrollments` | Links students to courses with a term name and status (`planned`, `enrolled`, `completed`, `missed`) |
+| `messages` | In-app messages between users with read/unread tracking |
+
+The schema ships with the full course catalog pre-loaded (~300+ courses). User and enrollment data starts empty.
 
 **4. Set up the uploads directory**
 
